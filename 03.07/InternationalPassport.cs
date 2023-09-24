@@ -1,25 +1,25 @@
 ﻿namespace _03._07;
-internal class InternationalPassport
+public class InternationalPassport
 {
     public int Id { get; set; }
-    public string FirstName
+    public string? FirstName
     {
         get => FirstName; 
         set
         {
-            foreach (char item in value) 
-                if (!Char.IsLetter(item))
+            for(int i=0; i<value.Length; i++) 
+                if (!Char.IsLetter(value[i]))
                     throw new ArgumentException();
             FirstName = value;
         }
     }
-    public string SecondName
+    public string? SecondName
     {
         get => SecondName;
         set
         {
-            foreach (char item in value)
-                if (!Char.IsLetter(item))
+            for (int i = 0; i < value.Length; i++)
+                if (!Char.IsLetter(value[i]))
                     throw new ArgumentException();
             SecondName = value;
         }

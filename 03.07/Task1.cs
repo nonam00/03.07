@@ -3,10 +3,8 @@ public class Task1 : ITask
 {
     public void Do()
     {
-        int input_mode;
-        int result_mode;
-
-        string input;
+        int input_mode; //система счислений, в которой производится ввод
+        int result_mode; //система счислений, в которую будет осуществляться перевод
 
         Console.WriteLine("Выберите систему счисления числа, из которой будет осуществлятся перевод");
         Console.WriteLine(
@@ -27,8 +25,11 @@ public class Task1 : ITask
             throw new Exception("Несуществующая система счисления");
 
         Console.WriteLine("Введите число");
-        string _input = Console.ReadLine();
-        string _result = String.Empty;
+
+        //ввод и результат в формате string, потому что в 16-ричной системе могут быть буквы
+        //из-за того, что ввод и рещультат в формате string, проверка на выход за границу диапазона значений int не требуется
+        string? _input = Console.ReadLine();
+        string _result;
 
         switch (result_mode)
         {
@@ -47,6 +48,7 @@ public class Task1 : ITask
             default:
                 throw new Exception("Несуществующая система счисления");
         }
+        
         Console.WriteLine(_result);
     }
 }
